@@ -8,14 +8,10 @@ SQLALCHEMY_DATABASE_URL = os.getenv(
     "DATABASE_URL", 
     "postgresql://user:password@localhost:5432/dashboard_db"
 )
-
-# Création du moteur de base de données
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
-# Session pour les requêtes
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
-# Base pour les modèles
 Base = declarative_base()
 
 def get_db():

@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+langchain
+langchain-core
+langchain-community
+langchain-ollama
+langchain-text-splitters
+langchain-experimental
+chromadb
+pydantic
+python-dotenv
+sqlalchemy
+psycopg2-binary
+llama-parse
+pypdf
+FlagEmbedding
+aiofiles
