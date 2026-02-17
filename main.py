@@ -119,7 +119,7 @@ async def chat(request: ChatRequest, db: Session = Depends(get_db)):
             elif msg["role"] == "assistant":
                 chat_history.append(AIMessage(content=msg["content"]))
 
-        response = rag_system.invoke({
+        response = await rag_system.ainvoke({
             "input": request.question,
             "chat_history": chat_history
         })
