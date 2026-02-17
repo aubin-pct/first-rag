@@ -1,7 +1,7 @@
 from langchain_community.vectorstores import Chroma
 from langchain_community.retrievers import BM25Retriever
 from langchain.retrievers import ContextualCompressionRetriever, ParentDocumentRetriever, EnsembleRetriever
-from langchain_ollama import OllamaEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 from langchain.storage import LocalFileStore, EncoderBackedStore
 from langchain_experimental.text_splitter import SemanticChunker
 from langchain_text_splitters import TextSplitter
@@ -105,7 +105,7 @@ def get_vectorstore():
     Embedding: Processus de conversion d'un texte en un vecteur numérique de dimension fixe, capturant son sens sémantique.
     """
     # 1. Modèle d'embedding de base
-    base_embeddings = OllamaEmbeddings(model=EMBEDDING_MODEL)
+    base_embeddings = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
     
     # 2. Configuration du cache pour les embeddings
     if not os.path.exists(EMBEDDINGS_CACHE_DIR):
@@ -173,7 +173,7 @@ def get_retriever(vectorstore, docstore):
     - Le reranker filtre les résultats non pertinents APRÈS la fusion
     """
     # 1. Configuration du ParentDocumentRetriever (Base Vectorielle)
-    base_embeddings = OllamaEmbeddings(model=EMBEDDING_MODEL)
+    base_embeddings = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
     child_splitter = SemanticTextSplitter(
         embeddings=base_embeddings,
         breakpoint_threshold_type="percentile",

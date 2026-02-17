@@ -5,9 +5,10 @@ load_dotenv()
 
 
 LLAMA_CLOUD_API_KEY = os.getenv("LLAMA_CLOUD_API_KEY")
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
-LLM_MODEL = "llama3.1:8b"
-EMBEDDING_MODEL = "nomic-embed-text"
+LLM_MODEL = "llama-3.3-70b-versatile"
+EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 RERANKER_MODEL = "BAAI/bge-reranker-v2-m3"
 
 SEMANTIC_CHUNKER_THRESHOLD = 90

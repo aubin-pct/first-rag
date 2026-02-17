@@ -1,8 +1,8 @@
-from langchain_ollama import ChatOllama
+from langchain_groq import ChatGroq
 from langchain.chains import create_retrieval_chain, create_history_aware_retriever
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-from config import LLM_MODEL
+from config import LLM_MODEL, GROQ_API_KEY
 
 def create_rag_chain(retriever):
     """
@@ -11,7 +11,7 @@ def create_rag_chain(retriever):
     Streaming: Mode de transmission où la réponse du modèle est envoyée morceau par morceau (token par token) dès qu'elle est générée, permettant un affichage progressif et plus réactif pour l'utilisateur.
     """
     # Activation du streaming pour une meilleure réactivité (si supporté par l'interface)
-    llm = ChatOllama(model=LLM_MODEL, temperature=0.1, streaming=True)
+    llm = ChatGroq(model=LLM_MODEL, temperature=0.1, streaming=True, api_key=GROQ_API_KEY)
 
     # 1. Chaîne pour reformuler la question en fonction de l'historique
     contextualize_q_system_prompt = """Compte tenu de l'historique de la conversation et de la dernière question de l'utilisateur 

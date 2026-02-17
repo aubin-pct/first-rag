@@ -14,7 +14,7 @@ def setup_rag_system():
     RAG (Retrieval-Augmented Generation): Technique d'IA qui améliore les réponses d'un LLM en lui fournissant des informations pertinentes récupérées dans une base de connaissances externe avant de générer sa réponse.
     Cache: Mécanisme de stockage temporaire permettant de sauvegarder les résultats de calculs coûteux (comme les réponses du LLM) pour les réutiliser rapidement lors de requêtes identiques.
     """
-    print("🔧 Configuration du système RAG avec Ollama...")
+    print("🔧 Configuration du système RAG avec Groq...")
 
     # 0. Initialisation du Cache LLM
     if not os.path.exists(CACHE_DIR):
