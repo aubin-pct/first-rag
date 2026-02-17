@@ -3,7 +3,7 @@ from .vector_store import get_vectorstore, get_docstore, get_retriever, index_do
 from .chain import create_rag_chain
 from langchain_core.messages import HumanMessage, AIMessage
 from langchain_community.cache import SQLiteCache
-from langchain.globals import set_llm_cache
+from langchain_core.globals import set_llm_cache
 import os
 from config import PERSIST_DIR, DOC_STORE_DIR, LLM_CACHE_DB, CACHE_DIR
 

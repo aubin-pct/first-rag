@@ -1,6 +1,6 @@
 from typing import Sequence, Any, List, Optional
 from langchain_core.documents import Document
-from langchain.retrievers.document_compressors.base import BaseDocumentCompressor
+from langchain_core.documents.compressor import BaseDocumentCompressor
 from pydantic import PrivateAttr
 from FlagEmbedding import FlagReranker
 from config import RERANKER_MODEL, MIN_RELEVANCE_SCORE

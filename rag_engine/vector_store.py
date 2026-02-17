@@ -1,14 +1,16 @@
 from langchain_community.vectorstores import Chroma
-from langchain_community.retrievers import BM25Retriever, ContextualCompressionRetriever, ParentDocumentRetriever, EnsembleRetriever
+from langchain_community.retrievers import BM25Retriever
+from langchain_classic.retrievers import ContextualCompressionRetriever, ParentDocumentRetriever, EnsembleRetriever
 from langchain_huggingface import HuggingFaceEmbeddings
-from langchain_community.storage import LocalFileStore, EncoderBackedStore
+from langchain_classic.storage.file_system import LocalFileStore
+from langchain_classic.storage.encoder_backed import EncoderBackedStore
 from langchain_experimental.text_splitter import SemanticChunker
 from langchain_text_splitters import TextSplitter
 from langchain_core.retrievers import BaseRetriever
 from langchain_core.callbacks import CallbackManagerForRetrieverRun
 from langchain_core.documents import Document
 from typing import List, Any
-from langchain_community.embeddings import CacheBackedEmbeddings
+from langchain_classic.embeddings.cache import CacheBackedEmbeddings
 from config import EMBEDDING_MODEL, PERSIST_DIR, DOC_STORE_DIR, SEARCH_K, USE_RERANKER, USE_HYBRID_SEARCH, EMBEDDINGS_CACHE_DIR, SEMANTIC_CHUNKER_THRESHOLD, MIN_RELEVANCE_SCORE
 from .reranker import BgeRerankCompressor
 import os
